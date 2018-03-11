@@ -25,12 +25,15 @@ SECRET_KEY = 'b0@gzba$%#&$g^qoear+9i^39#0@ak4pux%@9eey(7yx*nwrll'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '192.168.1.145',
+]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'download.apps.DownloadConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -76,8 +79,12 @@ WSGI_APPLICATION = 'DataCollectingSite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'project_data',
+        'USER': 'root',
+        'PASSWORD': '1996diana',
+        'HOST': '',
+        'PORT': '3306',
     }
 }
 
@@ -106,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
