@@ -20,6 +20,6 @@ from . import views
 urlpatterns = [
     path('download/', include('download.urls')),
     path('home/', views.home, name='home'),
-    path('synchronize/', name='synchronize')
+    path('synchronize/', views.synchronize, name='synchronize'),
     # path('admin/', admin.site.urls),
 ]

@@ -5,15 +5,34 @@
     <title>home</title>
 </head>
 <body>
-<p style="display: none">database synchronized</p>
-<button onclick="synchronize()">Synchronize Database Information</button>
+<p>
 <a href="{% url 'download:project_list' %}">Show Project List</a>
+</p>
+<button onclick="synchronize()">Synchronize Database Information</button>
+<p style="display: none" id="alert"></p>
 
 </body>
 </html>
 <script>
     function synchronize() {
+        var alert = document.getElementById('alert');
 
+        alert.textContent='synchronizing';
+        alert.style.display='block';
 
+        $.ajax({
+            type: "Get",
+            url: "{% url 'synchronize' %}",
+            async: false,
+            data: {},
+            success: function (data) {
+                if (data.status === 'success') {
+                    alert.textContent='database synchronized';
+                }
+
+            }
+        });
     }
 </script>
+
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>

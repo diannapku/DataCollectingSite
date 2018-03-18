@@ -24,8 +24,10 @@ from django.utils import timezone
 #     def __str__(self):
 #         return self.choice_text
 
+
 class ProjectInfo(models.Model):
     name = models.CharField(max_length=128)
     type = models.CharField(max_length=32)
     path = models.FilePathField(path="E:/Apache", allow_folders=True, recursive=True)
-
+    files_cnt = models.IntegerField(default=0)
+    size = models.IntegerField(default=0)
