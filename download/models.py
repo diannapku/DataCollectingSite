@@ -27,7 +27,8 @@ from django.utils import timezone
 
 class ProjectInfo(models.Model):
     name = models.CharField(max_length=128)
-    type = models.CharField(max_length=32)
+    source = models.CharField(max_length=32)
     path = models.FilePathField(path="E:/Apache", allow_folders=True, recursive=True)
     files_cnt = models.IntegerField(default=0)
     size = models.IntegerField(default=0)
+    preview_path = models.FilePathField(path="E:/Apache", recursive=True, null=True, max_length=128)

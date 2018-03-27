@@ -24,10 +24,14 @@
         </div>
 
         <div class="navbar-form navbar-right">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <input class="btn btn-default" type="button" value="Submit">
+            <form action="{% url 'download:search' %}" method="get">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search" name="str">
+                </div>
+                <input class="btn btn-default" type="submit" value="Submit">
+            </form>
+
 
         </div>
 
@@ -56,6 +60,7 @@
                 <th scope="row">{{ forloop.counter }}</th>
                 <td><a href="detail/{{ project.name }}">{{ project.name }}</a></td>
                 <td>{{ project.count }} source(s)</td>
+                <td>{{ project.size }}MB</td>
             </tr>
             {% endfor %}
         {% endif %}
