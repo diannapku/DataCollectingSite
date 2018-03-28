@@ -25,7 +25,6 @@
 
         <div class="navbar-form navbar-right">
             <form action="{% url 'download:search' %}" method="get">
-                {% csrf_token %}
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search" name="str">
                 </div>
@@ -51,14 +50,22 @@
 
     <table class="table table-striped">
         <colgroup>
-            <col width="50px">
+            <col width="70px">
         </colgroup>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Project name</th>
+                <th>Source</th>
+                <th>Size</th>
+            </tr>
+        </thead>
         <tbody>
         {% if project_list %}
             {% for project in project_list %}
             <tr>
                 <th scope="row">{{ forloop.counter }}</th>
-                <td><a href="detail/{{ project.name }}">{{ project.name }}</a></td>
+                <td><a href="{{ project.name }}">{{ project.name }}</a></td>
                 <td>{{ project.count }} source(s)</td>
                 <td>{{ project.size }}MB</td>
             </tr>

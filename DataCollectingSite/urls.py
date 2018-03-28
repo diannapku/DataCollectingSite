@@ -21,5 +21,6 @@ urlpatterns = [
     path('download/', include('download.urls')),
     path('home/', views.home, name='home'),
     path('synchronize/', views.synchronize, name='synchronize'),
+    path('upload/', include('upload.urls')),
     # path('admin/', admin.site.urls),
 ]

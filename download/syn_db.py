@@ -39,7 +39,7 @@ class SynDB:
         elif source == 'JIRAISSUE':
             for root, dirs, files, in os.walk(path):
                 for file in files:
-                    if file.find('.json') >= 0:
+                    if file.find('.json') >= 0 or file.find('.patch') >= 0:
                         size += os.path.getsize(os.path.join(root, file))
                         count += 1
                 for file in files:
